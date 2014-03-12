@@ -7,7 +7,8 @@ title: Joywii`s Blog
 subtitle: iOS Dev And Stu Blog
 author: Joywii
 simple_search: https://www.google.com/search
-description:
+description: 
+
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -19,7 +20,9 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: kingzwt@126.com 
+email_md5: true
+weibo_share: true
 
 # ----------------------- #
 #    Jekyll & Plugins     #
