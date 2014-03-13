@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-13T10:53:25+08:00</updated>
+  <updated>2014-03-13T11:00:10+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -223,17 +223,17 @@ NSObject &lt;MyProtocol&gt; * foo;//要保证foo赋值为NSObject的子类对象
 &ndash; (void)setStr:(NSString </em>)tempStr
 {</p>
 
-<pre><code>    if (tempStr != _str)
-            {
-                        _str = tempStr;
-                            }
+<pre><code>if (tempStr != _str)
+{
+    _str = tempStr;
+}
 </code></pre>
 
 <p>}
 &ndash; (NSString *)str
 {</p>
 
-<pre><code>    return  _str;
+<pre><code>return  _str;
 </code></pre>
 
 <p>}

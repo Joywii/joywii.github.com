@@ -380,14 +380,14 @@ NSObject *object = [[NSObject alloc] init];
 </span><span class='line'>@dynamic str;
 </span><span class='line'>- (void)setStr:(NSString *)tempStr
 </span><span class='line'>{
-</span><span class='line'>        if (tempStr != _str)
-</span><span class='line'>                {
-</span><span class='line'>                            _str = tempStr;
-</span><span class='line'>                                }
+</span><span class='line'>    if (tempStr != _str)
+</span><span class='line'>    {
+</span><span class='line'>        _str = tempStr;
+</span><span class='line'>    }
 </span><span class='line'>}
 </span><span class='line'>- (NSString *)str
 </span><span class='line'>{
-</span><span class='line'>        return  _str;
+</span><span class='line'>    return  _str;
 </span><span class='line'>}
 </span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
 

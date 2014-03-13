@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-13T10:53:25+08:00</updated>
+  <updated>2014-03-13T11:00:10+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -291,14 +291,14 @@
 </span><span class='line'>@dynamic str;
 </span><span class='line'>- (void)setStr:(NSString *)tempStr
 </span><span class='line'>{
-</span><span class='line'>        if (tempStr != _str)
-</span><span class='line'>                {
-</span><span class='line'>                            _str = tempStr;
-</span><span class='line'>                                }
+</span><span class='line'>    if (tempStr != _str)
+</span><span class='line'>    {
+</span><span class='line'>        _str = tempStr;
+</span><span class='line'>    }
 </span><span class='line'>}
 </span><span class='line'>- (NSString *)str
 </span><span class='line'>{
-</span><span class='line'>        return  _str;
+</span><span class='line'>    return  _str;
 </span><span class='line'>}
 </span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
 
