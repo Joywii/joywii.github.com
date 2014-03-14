@@ -3,6 +3,7 @@ layout: post
 title: "iOS Dev Tips"
 date: 2014-03-12 17:19:01 +0800
 comments: true
+sharing: true
 categories: iOS 
 ---
 
@@ -170,14 +171,14 @@ NSObject <MyProtocol> * foo;//要保证foo赋值为NSObject的子类对象。
 @dynamic str;
 - (void)setStr:(NSString *)tempStr
 {
-        if (tempStr != _str)
-                {
-                            _str = tempStr;
-                                }
+    if (tempStr != _str)
+    {
+        _str = tempStr;
+    }
 }
 - (NSString *)str
 {
-        return  _str;
+    return  _str;
 }
 @end
 ```
