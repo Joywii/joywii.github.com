@@ -201,3 +201,5 @@ NSObject <MyProtocol> * foo;//要保证foo赋值为NSObject的子类对象。
  如果子类里没有实现+initialized而父类里面实现了+initialized，那么用到子类时，不是说一定要生成对象，+initialize是调用任何方法，包括类方法，例如[SubClass class]，那么`父类的+initialized就会被执行两次`！解决办法也很简单，就像开头的写法if (self == [Manager class])，先判断下是不是当前类的类型。
 
  如果你在类的实现中实现了+load，但是在这个类的Category中又实现了一个+load，那么这`两个+load都会被调用`。
+##17.imageNamed和imageWithContentsOfFile的区别
+ imageNamed会在内存中缓存image数据，imageWithContentsOfFile不会缓存
