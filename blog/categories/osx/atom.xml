@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OSX | Joywii`s Blog]]></title>
+  <link href="http://Joywii.github.io/blog/categories/osx/atom.xml" rel="self"/>
+  <link href="http://Joywii.github.io/"/>
+  <updated>2014-03-21T19:15:06+08:00</updated>
+  <id>http://Joywii.github.io/</id>
+  <author>
+    <name><![CDATA[Joywii]]></name>
+    <email><![CDATA[kingzwt@126.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[OSX Use Tips]]></title>
+    <link href="http://Joywii.github.io/blog/2014/03/21/osx-use-tips/"/>
+    <updated>2014-03-21T18:58:37+08:00</updated>
+    <id>http://Joywii.github.io/blog/2014/03/21/osx-use-tips</id>
+    <content type="html"><![CDATA[<h2>1.快速创建HTTP服务器共享文件</h2>
+
+<p>在想要分享的目录下输入以下Python命令：
+<code>
+python -m SimpleHTTPServer 8888
+</code>
+然后在浏览器中访问<a href="http://xx.xx.xx.xx:8888">http://xx.xx.xx.xx:8888</a> 就可以访问我们想要共享的目录了，xx.xx.xx.xx是本机的ip地址，8888是HTTP服务监听的端口号。</p>
+]]></content>
+  </entry>
+  
+</feed>

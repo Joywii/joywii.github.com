@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-21T19:11:45+08:00</updated>
+  <updated>2014-03-21T19:15:06+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -14,9 +14,9 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Osx Use Tips]]></title>
+    <title type="html"><![CDATA[OSX Use Tips]]></title>
     <link href="http://Joywii.github.io/blog/2014/03/21/osx-use-tips/"/>
-    <updated>2014-03-21T00:00:00+08:00</updated>
+    <updated>2014-03-21T18:58:37+08:00</updated>
     <id>http://Joywii.github.io/blog/2014/03/21/osx-use-tips</id>
     <content type="html"><![CDATA[<h2>1.快速创建HTTP服务器共享文件</h2>
 
