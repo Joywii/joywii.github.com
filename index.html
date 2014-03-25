@@ -473,6 +473,43 @@ python -m SimpleHTTPServer 8888 然后在浏览器中访问http://xx.xx.xx.xx:88
 
 <p> imageNamed会在内存中缓存image数据，imageWithContentsOfFile不会缓存</p>
 
+<h2>18.nil/Nil/NULL/NSNull</h2>
+
+<ul>
+<li>NULL&mdash;&mdash;&ndash;(void*)0&mdash;&mdash;&mdash;-C指针的字面值为0</li>
+<li>nil&mdash;&mdash;&mdash;(id)0&mdash;&mdash;&mdash;&mdash;&mdash;Objective-C对象的字面零值</li>
+<li>Nil&mdash;&mdash;&mdash;(Class)0&mdash;&mdash;&mdash;-Objective-C类的字面零值</li>
+<li>NSNull&mdash;&ndash;[NSNull null]&mdash;用来表示零值的单独的对象</li>
+</ul>
+
+
+<p> &#8220;`
+ //注：id是对象结构体指针,Class是类结构指针
+ struct objc_class {</p>
+
+<pre><code>Class isa;
+Class super_class                                        
+const char *name                                         
+long version                                             
+long info                                                
+long instance_size                                       
+struct objc_ivar_list *ivars                             
+struct objc_method_list **methodLists                    
+struct objc_cache *cache                                 
+struct objc_protocol_list *protocols                     
+</code></pre>
+
+<p> };
+ typedef struct objc_class *Class;
+ struct objc_object {</p>
+
+<pre><code>Class isa;
+</code></pre>
+
+<p> };
+ typedef struct objc_object *id;
+ &#8220;`</p>
+
 		
 		
 	</div>
