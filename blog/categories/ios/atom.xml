@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-25T11:51:23+08:00</updated>
+  <updated>2014-03-25T13:23:43+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -84,13 +84,14 @@ va_end(list);
 
 <h2>7.Objective-C BOOL理解</h2>
 
-<ul>
-<li>BOOL&mdash;&mdash;&mdash;&mdash;-signed char&mdash;&mdash;&mdash;&mdash;-objc.h&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-YES/NO</li>
-<li>bool&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;_Bool (int)&mdash;&mdash;&mdash;&mdash;&mdash;-stdbool.h&mdash;&mdash;&mdash;&mdash;&mdash;true/false</li>
-<li>Boolean&mdash;&mdash;&mdash;-unsigned char&mdash;&mdash;&mdash;MacTypes.h&mdash;&mdash;&mdash;-TRUE/FALSE</li>
-<li>NSNumber&mdash;&mdash;&ndash;__NSCFBoolean&mdash;Foundation.h&mdash;&mdash;&mdash;@(YES)/@(NO)</li>
-<li>CFBooleanRef-struct&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;CoreFoundation.h-kCFBooleanTrue/kCFBooleanFalse</li>
-</ul>
+<table>
+<tr><td>名字</td><td>类型</td><td>头文件</td><td>值</td></tr>
+<tr><td>BOOL</td><td>signed char</td><td>objc.h</td><td>YES/NO</td></tr>
+<tr><td>bool</td><td>_Bool (int)</td><td>stdbool.h</td><td>true/false</td></tr>
+<tr><td>Boolean</td><td>unsigned char</td><td>MacTypes.h</td><td>TRUE/FALSE</td></tr>
+<tr><td>NSNumber</td><td>__NSCFBoolean</td><td>Foundation.h</td><td>@(YES)/@(NO)</td></tr>
+<tr><td>CFBooleanRef</td><td>struct</td><td>CoreFoundation.h</td><td>kCFBooleanTrue/kCFBooleanFalse</td></tr>
+</table>
 
 
 <p>```</p>
@@ -289,12 +290,13 @@ NSObject &lt;MyProtocol&gt; * foo;//要保证foo赋值为NSObject的子类对象
 
 <h2>18.nil/Nil/NULL/NSNull</h2>
 
-<ul>
-<li>NULL&mdash;&mdash;&ndash;(void*)0&mdash;&mdash;&mdash;-C指针的字面值为0</li>
-<li>nil&mdash;&mdash;&mdash;&mdash;&ndash;(id)0&mdash;&mdash;&mdash;&mdash;&mdash;-Objective-C对象的字面零值</li>
-<li>Nil&mdash;&mdash;&mdash;&mdash;&ndash;(Class)0&mdash;&mdash;&mdash;-Objective-C类的字面零值</li>
-<li>NSNull&mdash;&mdash;[NSNull null]&mdash;用来表示零值的单独的对象</li>
-</ul>
+<table>
+<tr><td>符号</td><td>值</td><td>意义</td></tr>
+<tr><td>NULL</td><td>(void*)0</td><td>C指针的字面值为0</td></tr>
+<tr><td>nil</td><td>(id)0</td><td>Objective-C对象的字面零值</td></tr>
+<tr><td>Nil</td><td>(Class)0</td><td>Objective-C类的字面零值</td></tr>
+<tr><td>NSNull</td><td>[NSNull null]</td><td>用来表示零值的单独的对象</td></tr>
+</table>
 
 
 <p>```
