@@ -4,7 +4,7 @@
   <title><![CDATA[Category: iOS | Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/blog/categories/ios/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-25T13:23:43+08:00</updated>
+  <updated>2014-03-25T13:25:47+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -291,7 +291,7 @@ NSObject &lt;MyProtocol&gt; * foo;//要保证foo赋值为NSObject的子类对象
 <h2>18.nil/Nil/NULL/NSNull</h2>
 
 <table>
-<tr><td>符号</td><td>值</td><td>意义</td></tr>
+<thead><td>符号</td><td>值</td><td>意义</td></thead>
 <tr><td>NULL</td><td>(void*)0</td><td>C指针的字面值为0</td></tr>
 <tr><td>nil</td><td>(id)0</td><td>Objective-C对象的字面零值</td></tr>
 <tr><td>Nil</td><td>(Class)0</td><td>Objective-C类的字面零值</td></tr>
