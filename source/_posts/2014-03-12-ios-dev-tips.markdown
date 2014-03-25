@@ -203,3 +203,29 @@ NSObject <MyProtocol> * foo;//要保证foo赋值为NSObject的子类对象。
  如果你在类的实现中实现了+load，但是在这个类的Category中又实现了一个+load，那么这`两个+load都会被调用`。
 ##17.imageNamed和imageWithContentsOfFile的区别
  imageNamed会在内存中缓存image数据，imageWithContentsOfFile不会缓存
+##18.nil/Nil/NULL/NSNull
+ - NULL-----(void*)0-------C指针的字面值为0
+ - nil------(id)0----------Objective-C对象的字面零值
+ - Nil------(Class)0-------Objective-C类的字面零值
+ - NSNull---[NSNull null]--用来表示零值的单独的对象
+
+ ```
+ //注：id是对象结构体指针,Class是类结构指针
+ struct objc_class {
+    Class isa;
+    Class super_class                                        
+    const char *name                                         
+    long version                                             
+    long info                                                
+    long instance_size                                       
+    struct objc_ivar_list *ivars                             
+    struct objc_method_list **methodLists                    
+    struct objc_cache *cache                                 
+    struct objc_protocol_list *protocols                     
+ };
+ typedef struct objc_class *Class;
+ struct objc_object {
+    Class isa;
+ };
+ typedef struct objc_object *id;
+ ```
