@@ -168,6 +168,15 @@ NSObject *object = [[NSObject alloc] init];
 
 <h2>7.Objective-C BOOL理解</h2>
 
+<ul>
+<li>BOOL&mdash;&mdash;&mdash;&mdash;-signed char&mdash;&mdash;&mdash;&mdash;-objc.h&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-YES/NO</li>
+<li>bool&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;_Bool (int)&mdash;&mdash;&mdash;&mdash;&mdash;-stdbool.h&mdash;&mdash;&mdash;&mdash;&mdash;true/false</li>
+<li>Boolean&mdash;&mdash;&mdash;-unsigned char&mdash;&mdash;&mdash;MacTypes.h&mdash;&mdash;&mdash;-TRUE/FALSE</li>
+<li>NSNumber&mdash;&mdash;&ndash;__NSCFBoolean&mdash;Foundation.h&mdash;&mdash;&mdash;@(YES)/@(NO)</li>
+<li>CFBooleanRef-struct&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;CoreFoundation.h-kCFBooleanTrue/kCFBooleanFalse</li>
+</ul>
+
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -175,7 +184,17 @@ NSObject *object = [[NSObject alloc] init];
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>BOOL myBool;  (unsigined char)8位中最低位为1就是YES，最低位为0就是NO
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#define  false   0
+</span><span class='line'>#define   true    1
+</span><span class='line'>#define YES ((BOOL)1)
+</span><span class='line'>#define NO  ((BOOL)0)
+</span><span class='line'>//例：
+</span><span class='line'>BOOL myBool;  (unsigined char)8位中最低位为1就是YES，最低位为0就是NO
 </span><span class='line'>myBool = YES;      //True
 </span><span class='line'>myBool = TRUE    //True
 </span><span class='line'>myBool = 1          //True
@@ -408,9 +427,9 @@ NSObject *object = [[NSObject alloc] init];
 
 <ul>
 <li>NULL&mdash;&mdash;&ndash;(void*)0&mdash;&mdash;&mdash;-C指针的字面值为0</li>
-<li>nil&mdash;&mdash;&mdash;(id)0&mdash;&mdash;&mdash;&mdash;&mdash;Objective-C对象的字面零值</li>
-<li>Nil&mdash;&mdash;&mdash;(Class)0&mdash;&mdash;&mdash;-Objective-C类的字面零值</li>
-<li>NSNull&mdash;&ndash;[NSNull null]&mdash;用来表示零值的单独的对象</li>
+<li>nil&mdash;&mdash;&mdash;&mdash;&ndash;(id)0&mdash;&mdash;&mdash;&mdash;&mdash;-Objective-C对象的字面零值</li>
+<li>Nil&mdash;&mdash;&mdash;&mdash;&ndash;(Class)0&mdash;&mdash;&mdash;-Objective-C类的字面零值</li>
+<li>NSNull&mdash;&mdash;[NSNull null]&mdash;用来表示零值的单独的对象</li>
 </ul>
 
 
