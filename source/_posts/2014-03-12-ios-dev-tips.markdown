@@ -58,7 +58,21 @@ opaque默认为YES，为了系统在绘制界面的时候优化提高性能。�
 1和2两张写法你习惯使用哪种,为什么？
 最好采用第二种方法，`NSMutableString`是NSString的子类，可以作为set方法的参数传递，so，如果是retain的话，指针实际指向的对象是NSMutableString，这将导致该属性有可变的可能
 ##7.Objective-C BOOL理解
+<table class="table-striped table-bordered table-condensed">
+<thead><th>名字</th><th>类型</th><th>头文件</th><th>值</th></thead>
+<tr><td>BOOL</td><td>signed char</td><td>objc.h</td><td>YES/NO</td></tr>
+<tr><td>bool</td><td>_Bool (int)</td><td>stdbool.h</td><td>true/false</td></tr>
+<tr><td>Boolean</td><td>unsigned char</td><td>MacTypes.h</td><td>TRUE/FALSE</td></tr>
+<tr><td>NSNumber</td><td>__NSCFBoolean</td><td>Foundation.h</td><td>@(YES)/@(NO)</td></tr>
+<tr><td>CFBooleanRef</td><td>struct</td><td>CoreFoundation.h</td><td>kCFBooleanTrue/kCFBooleanFalse</td></tr>
+</table>
+
 ```
+#define	false	0
+#define	true	1
+#define YES ((BOOL)1)
+#define NO  ((BOOL)0)
+//例：
 BOOL myBool;  (unsigined char)8位中最低位为1就是YES，最低位为0就是NO
 myBool = YES;      //True
 myBool = TRUE    //True
@@ -204,28 +218,31 @@ NSObject <MyProtocol> * foo;//要保证foo赋值为NSObject的子类对象。
 ##17.imageNamed和imageWithContentsOfFile的区别
  imageNamed会在内存中缓存image数据，imageWithContentsOfFile不会缓存
 ##18.nil/Nil/NULL/NSNull
- - NULL-----(void*)0-------C指针的字面值为0
- - nil------(id)0----------Objective-C对象的字面零值
- - Nil------(Class)0-------Objective-C类的字面零值
- - NSNull---[NSNull null]--用来表示零值的单独的对象
+<table class="table-striped table-bordered table-condensed">
+<thead><th>符号</th><th>值</th><th>意义</th></thead>
+<tr><td>NULL</td><td>(void*)0</td><td>C指针的字面值为0</td></tr>
+<tr><td>nil</td><td>(id)0</td><td>Objective-C对象的字面零值</td></tr>
+<tr><td>Nil</td><td>(Class)0</td><td>Objective-C类的字面零值</td></tr>
+<tr><td>NSNull</td><td>[NSNull null]</td><td>用来表示零值的单独的对象</td></tr>
+</table>
 
- ```
- //注：id是对象结构体指针,Class是类结构指针
- struct objc_class {
+```
+//注：id是对象结构体指针,Class是类结构指针
+struct objc_class {
     Class isa;
-    Class super_class                                        
+    Class super_class
     const char *name                                         
     long version                                             
     long info                                                
-    long instance_size                                       
+    long instance_size
     struct objc_ivar_list *ivars                             
     struct objc_method_list **methodLists                    
     struct objc_cache *cache                                 
     struct objc_protocol_list *protocols                     
- };
- typedef struct objc_class *Class;
- struct objc_object {
+};
+typedef struct objc_class *Class;
+struct objc_object {
     Class isa;
- };
- typedef struct objc_object *id;
- ```
+};
+typedef struct objc_object *id;
+```
