@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-04-22T10:57:28+08:00</updated>
+  <updated>2014-04-22T12:59:55+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iOS Dev Blogs]]></title>
+    <link href="http://Joywii.github.io/blog/2014/04/22/ios-dev-blogs/"/>
+    <updated>2014-04-22T11:00:11+08:00</updated>
+    <id>http://Joywii.github.io/blog/2014/04/22/ios-dev-blogs</id>
+    <content type="html"><![CDATA[<h2>1.国内iOS开发博客</h2>
+
+<ul>
+<li>唐巧的技术博客 <a href="http://blog.devtang.com/">http://blog.devtang.com/</a></li>
+<li>OneV&rsquo;s Den <a href="http://www.onevcat.com/">http://www.onevcat.com/</a></li>
+<li>破船之家 <a href="http://beyondvincent.com/">http://beyondvincent.com/</a></li>
+<li>hrchen&rsquo;s blogging <a href="http://www.hrchen.com/">http://www.hrchen.com/</a></li>
+<li>代码手工艺人 <a href="http://joeyio.com/">http://joeyio.com/</a></li>
+<li>Limboy | 无网不剩 <a href="http://blog.leezhong.com/">http://blog.leezhong.com/</a></li>
+<li>txx&rsquo;s blog <a href="http://blog.t-xx.me/">http://blog.t-xx.me/</a></li>
+<li>I&rsquo;m Allen <a href="http://imallen.com/">http://imallen.com/</a></li>
+<li>萧宸宇 <a href="http://iiiyu.com/">http://iiiyu.com/</a></li>
+<li>吴发伟的技术博客 <a href="http://wufawei.com/">http://wufawei.com/</a></li>
+<li>董宝君的iOS技术博客 <a href="http://blog.devdong.com/">http://blog.devdong.com/</a></li>
+<li>NICO &ndash; Home <a href="http://www.taofengping.com/">http://www.taofengping.com/</a></li>
+<li>罗朝辉（飘飘白云）<a href="http://blog.csdn.net/kesalin">http://blog.csdn.net/kesalin</a></li>
+<li>JasonLee的专栏 <a href="http://blog.csdn.net/jasonblog">http://blog.csdn.net/jasonblog</a></li>
+</ul>
+
+
+<h2>2.国内iOS开发网站</h2>
+
+<ul>
+<li>objc中国 <a href="http://objccn.io/">http://objccn.io/</a></li>
+</ul>
+
+
+<h2>3.国外iOS开发博客</h2>
+
+<ul>
+<li>NSBlog <a href="https://mikeash.com/pyblog/">https://mikeash.com/pyblog/</a></li>
+</ul>
+
+
+<h2>4.国外iOS开发网站</h2>
+
+<ul>
+<li>objc <a href="http://www.objc.io/">http://www.objc.io/</a></li>
+<li>RAYWENDERLICH <a href="http://www.raywenderlich.com/">http://www.raywenderlich.com/</a></li>
+</ul>
+
+
+<h2>5.其他</h2>
+
+<ul>
+<li>老谭 <a href="http://www.tanhao.me/">http://www.tanhao.me/</a> Mac开发</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[OSX Use Tips]]></title>
