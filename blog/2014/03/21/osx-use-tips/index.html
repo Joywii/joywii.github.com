@@ -90,6 +90,20 @@ python -m SimpleHTTPServer 8888 然后在浏览器中访问http://xx.xx.xx.xx:88
 
 
 <p>然后在浏览器中访问<a href="http://xx.xx.xx.xx:8888">http://xx.xx.xx.xx:8888</a> 就可以访问我们想要共享的目录了，xx.xx.xx.xx是本机的ip地址，8888是HTTP服务监听的端口号。</p>
+
+<h2>2.显示和隐藏Mac隐藏文件</h2>
+
+<p>显示隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool true</span></code></pre></td></tr></table></div></figure>
+
+
+<p>隐藏隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool false</span></code></pre></td></tr></table></div></figure>
+
 </div>
 
 </article>

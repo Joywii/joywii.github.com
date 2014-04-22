@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-03-25T13:47:59+08:00</updated>
+  <updated>2014-04-22T10:57:28+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -27,6 +27,20 @@
 
 
 <p>然后在浏览器中访问<a href="http://xx.xx.xx.xx:8888">http://xx.xx.xx.xx:8888</a> 就可以访问我们想要共享的目录了，xx.xx.xx.xx是本机的ip地址，8888是HTTP服务监听的端口号。</p>
+
+<h2>2.显示和隐藏Mac隐藏文件</h2>
+
+<p>显示隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool true</span></code></pre></td></tr></table></div></figure>
+
+
+<p>隐藏隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool false</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
