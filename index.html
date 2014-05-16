@@ -108,6 +108,20 @@
 
 <h2>1.open</h2>
 
+<p><code>open</code>打开文件、目录和应用。很令人兴奋是不是，其实open真正有用的是作为命令行的双击命令，例如输入：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ open /Applications/Safari.app/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Safari就会打开，就像你在Finder中双击了Safari图标一样。</p>
+
+<p>如果我们用<code>open</code>打开一个文件，终端就会尝试用相应的GUI程序加载文件，<code>open screenspot.png</code>会在Preview中打开图片。我们可以通过<code>-a</code>来指定打开的应用，或者<code>-e</code>来打开TextEdit编辑文件。</p>
+
+<p><code>open</code>一个目录将直接在Finder窗口中打开相应的目录，特别打开当前目录<code>open .</code>命令是非常有用的。</p>
+
+<p>请记住，Finder和终端是双向的，我们直接从Finder中拖拽一个文件到命令行，该文件的完整地址就会粘贴到命令行。</p>
+
 <h2>2.pbcopy and pbpaste</h2>
 
 <h2>3.mdfind</h2>
