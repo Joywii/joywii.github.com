@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2014-05-06T13:03:37+08:00</updated>
+  <updated>2014-05-16T10:54:23+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[每个Mac OS X 命令行用户应当知道的八个终端工具]]></title>
+    <link href="http://Joywii.github.io/blog/2014/05/16/mei-ge-mac-os-x-ming-ling-xing-yong-hu-ying-dang-zhi-dao-de-ba-ge-zhong-duan-gong-ju/"/>
+    <updated>2014-05-16T10:07:03+08:00</updated>
+    <id>http://Joywii.github.io/blog/2014/05/16/mei-ge-mac-os-x-ming-ling-xing-yong-hu-ying-dang-zhi-dao-de-ba-ge-zhong-duan-gong-ju</id>
+    <content type="html"><![CDATA[<p>OS X的终端开启了一个强大的UNIX实用工具和脚本的世界。如果你是从Linux迁移过来的，你会发现许多熟悉的命令，工作方式和你所期望的方式一样。但是大部分用户不知道OS X自带了一些其他操作系统没有的基于文本的工具。学习这些Mac上独有应用，可以让你在命令行上更高效，帮助你跨越OS X和UNIX之间的鸿沟。</p>
+
+<h2>1.open</h2>
+
+<h2>2.pbcopy and pbpaste</h2>
+
+<h2>3.mdfind</h2>
+
+<h2>4.screencapture</h2>
+
+<h2>5.launchctl</h2>
+
+<h2>6.say</h2>
+
+<h2>7.diskutil</h2>
+
+<h2>8.brew</h2>
+
+<p><a href="http://www.mitchchn.me/2014/os-x-terminal/">Eight Terminal Utilities Every OS X Command Line User Should Know</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iOS Dev Blogs]]></title>
