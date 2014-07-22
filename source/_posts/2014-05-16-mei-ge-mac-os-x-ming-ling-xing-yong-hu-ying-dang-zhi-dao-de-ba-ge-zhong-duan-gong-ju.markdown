@@ -21,7 +21,6 @@ Safari就会打开，就像你在Finder中双击了Safari图标一样。
 请记住，Finder和终端是双向的，我们直接从Finder中拖拽一个文件到命令行，该文件的完整地址就会粘贴到命令行。
 
 ##2.pbcopy and pbpaste
-测试
 
 ##3.mdfind
 
