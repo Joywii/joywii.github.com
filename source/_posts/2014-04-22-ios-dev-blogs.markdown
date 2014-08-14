@@ -5,6 +5,11 @@ date: 2014-04-22 11:00:11 +0800
 comments: true
 categories: 
 ---
+##0.Swift开发
+- [Swiftist社区](http://swiftist.org/)
+- [Swift特刊](http://weekly.manong.io/issues/33)
+- [LearnSwiftTis](http://www.learnswift.tips/)
+- [Swift课堂(视频)](http://www.swiftv.cn/school)
 
 ##1.国内iOS开发博客
 - 唐巧的技术博客 [http://blog.devtang.com/](http://blog.devtang.com/)
