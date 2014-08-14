@@ -21,7 +21,26 @@ Safari就会打开，就像你在Finder中双击了Safari图标一样。
 请记住，Finder和终端是双向的，我们直接从Finder中拖拽一个文件到命令行，该文件的完整地址就会粘贴到命令行。
 
 ##2.pbcopy and pbpaste
+我们可以用这两个命令在命令行里粘贴和复制，当然我们也可以使用鼠标做到这些，但是pbcopy和pbpaste真正的强大之处在于，他们来自于UNIX命令，可以充分利用管道、重定向和能够在脚本中与其他命令相结合的能力。例如：
 
+```
+$ ls ~ | pbcopy
+```
+这条命令会拷贝home目录下的所有文件列表到OS X的剪贴板中。我们也可以很简单的获取文件中的内容：
+
+```
+$ pbcopy < blogpost.txt
+```
+或者疯狂一点的，通过抓取脚本抓取Google涂鸦的连接然后拷贝到剪贴板。
+
+```
+$ curl http://www.google.com/doodles#oodles/archive | grep -A5 'latest-doodle on' | grep 'img src' | sed s/.*'<img src="\/\/'/''/ | sed s/'" alt=".*'/''/ | pbcopy
+```
+通过pbcopy来获取其他命令的输出是一个非常棒的方法，省去了我们滚动屏幕小心翼翼的选择文本啦。这个命令让我们很容易的分享诊断信息。pbcopy和pbpaste还可以用于自动或加速某些类型的任务。举例来说，如果你想的电子邮件的主题行保存到任务列表中，你可以从Mail.app赋值主题然后运行下面的命令：
+
+```
+$ pbpaste >> tasklist.txt
+```
 ##3.mdfind
 
 ##4.screencapture

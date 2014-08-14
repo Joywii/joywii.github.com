@@ -7,6 +7,7 @@ categories:
 ---
 ##0.Swift开发
 - [Swiftist社区](http://swiftist.org/)
+- [SwiftChina](http://swift.sh)
 - [Swift特刊](http://weekly.manong.io/issues/33)
 - [LearnSwiftTis](http://www.learnswift.tips/)
 - [Swift课堂(视频)](http://www.swiftv.cn/school)
