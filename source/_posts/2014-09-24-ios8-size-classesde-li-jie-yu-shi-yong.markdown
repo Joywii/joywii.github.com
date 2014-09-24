@@ -55,9 +55,11 @@ iOS 8在应用界面的可视化设计上添加了一个新的特性-Size Classe
 在两个To Do处，我们要手写代码针对不同的状态做调整。
 ###Size Classes与Interface Builder
 Xcode6中`Interface Builder`对`Size Class`有了很强大的支持，xib中可以开启Size Classes如下图：
+
 ![Alt text](http://img.itc.cn/photo/jDaZQyG9GF0)
 
 在不同的`Size Classes`描述下，界面元素可以选择安装还是不安装，具体操作如图：
+
 ![Alt text](http://img.itc.cn/photo/jDaZQbsciH2)
 ###Size Classes与Image Asset
 Xcode6中`Image Asset`也支持了`Size Class`,也就是说,我们可以对不同的`Size Class`指定不同的图片了。在`Image Asset`的编辑面板中选择某张图片，Inspector里现在多了一个`Width`和`Height`的组合，添加我们需要对应的`Size Class`，然后把合适的图拖上去，这样在运行时`SDK`就将从中挑选对应的`Size`的图进行替换了。支持`Size Class`的`Image Asset`编辑效果如下：
