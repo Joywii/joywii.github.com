@@ -42,6 +42,12 @@ $ curl http://www.google.com/doodles#oodles/archive | grep -A5 'latest-doodle on
 $ pbpaste >> tasklist.txt
 ```
 ##3.mdfind
+许多Linux用户尝试在Mac上使用`lacate`来搜索文件，然后发现这个命令不好使。虽然有一个`find`命令可以用，但是OSX有一个自己的好用的文件搜索工具`Spotlight`。所以为什么不把它放到命令行里使用呢？`mdfind`就是这样的命令。任何`Spotlight`可以查找的，`mdfind`都可以查找，包括查找文件和元数据。`mdfind`有几个方便之处区别于`Spotlight`。例如`-onlyin`参数可以严格搜索一个简单的目录：
+
+```
+$ mdfind -onlyin ~/Documents essay
+```
+`mdfind`的数据库总是在后台保持最新，但是我们也可以通过`mdutil`来重构。如果Spotlight出了问题，`mdutil -E`可以删除所有索引然后重头重构。我们也可以通过`mdutil`完全的关闭索引。
 
 ##4.screencapture
 

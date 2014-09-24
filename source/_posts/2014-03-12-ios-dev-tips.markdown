@@ -246,3 +246,19 @@ struct objc_object {
 };
 typedef struct objc_object *id;
 ```
+##19.id和void *转换的问题
+`ARC`不能管理C指针的对象，`result`默认是`__strong`类型，在`result`出了作用域后会自动`release`，但是`getReturnValue`的参数为`void *`类型，在`ARC`下`result`不会获取到返回对象的持有关系，所以不应该是释放`result`。
+出错的问题
+
+```
+id result;
+[invocation getReturnValue:&result];
+```
+正确的方案
+
+```
+void *pointer;
+[invocation getReturnValue:&pointer];
+id result = (__bridge id)pointer; 
+```
+通过显示转换在赋值后`result`就会持有赋值的对象。
