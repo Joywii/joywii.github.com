@@ -108,7 +108,9 @@ $ say -f mynovel.txt -o myaudiobook.aiff
 ##8.brew
 技术上来说`brew`不是一个原生的命令，但是没有一个Mac高级用户不用[Homebrew](http://brew.sh/),官网生成这是OS X缺少的包管理工具，如果你在Linux上使用过apt-get，那么Homebrew就是这样的工具。
 `brew`可以帮助你轻松的访问开源社区上千的开源库和免费工具，举个例子：`brew install imagemagick`会帮助你安装[ImageMagick](http://www.imagemagick.org/)工具，一个非常有用的工具，可以把GIF图像转换成几十张不同类型的图像。`brew install node`就会安装[NodeJS](http://nodejs.org/),一个非常热门的JavaScript服务端开发的工具。你也可以用`brew`做一些有趣的事情：`brew install archey` 安装**Archey**，一个很cool的工具用来展示Mac描述，包含一个彩色的Apple的Logo。Homebrew的定制是非常灵活的，因为它是非常容易的创建[formulas](https://github.com/Homebrew/homebrew/wiki/Formula-Cookbook),新包会一直被加进来。
+
 ![](http://img.itc.cn/photo/jZcv9irp8EW)
+
 但是Homebrew最好的部分是：它总是把所有的文件保存在一个简单的目录下：`/usr/local/`.这意味着你可以系统软件的最新版本，例如`python`和`mysql`，不用被环境变量干扰。如果你不想用Homebrew安装，删除是很简单的。
 
 ###原文链接
