@@ -5,8 +5,6 @@ date: 2014-12-04 18:07:47 +0800
 comments: true
 categories: 
 ---
-iTerm + Zsh环境搭建
-===
 ##1. iTerm
 iTerm2官方网址 [http://iterm2.com/index.html](http://iterm2.com/index.html)
 ##2. Zsh

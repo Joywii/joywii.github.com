@@ -5,8 +5,6 @@ date: 2015-03-05 16:06:10 +0800
 comments: true
 categories: 
 ---
-不要再Objective-C的init和dealloc中向自己发送消息
-===
 在Objective-C的init和dealloc方法中向自己发送消息是有危险的，如下两个地方：
 
 ```
