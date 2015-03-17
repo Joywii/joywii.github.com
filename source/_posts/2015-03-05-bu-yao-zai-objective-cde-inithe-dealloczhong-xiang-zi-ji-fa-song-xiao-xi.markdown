@@ -5,6 +5,8 @@ date: 2015-03-05 16:06:10 +0800
 comments: true
 categories: 
 ---
+译自:[Don’t Message self in Objective-C init (or dealloc)](http://qualitycoding.org/objective-c-init/)
+
 在Objective-C的init和dealloc方法中向自己发送消息是有危险的，如下两个地方：
 
 ```
