@@ -121,7 +121,7 @@
 <p>数字签名就是利用<code>非对称加密</code>和<code>摘要算法</code>来传输数据，保证数据的<code>完整性</code>和<code>合法性</code>。验证过程如下：
 1. 发送方使用给一个摘要算法（<code>MD5</code>）得到要发送数据的摘要，然后用自己的私钥和一个非对称加密算法（<code>RSA</code>）对得到的摘要加密，得到加密后的数据，然后将<code>要发送的数据</code>、<code>加密后的数据</code>、<code>摘要算法</code>和<code>加密算法</code>一同发送给接收方。
 2. 接收方接收到数据后，根据指定的摘要算法（<code>MD5</code>）得到实际要传输的数据的摘要，然后在根据指定的加密算法（<code>RSA</code>）和已有的公钥解密得到加密数据解密后的数据，最后比较解密后的数据和得到的摘要是否相同，如果相同就说明实际要传输的数据是完成的合法的。
-<img src="./%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D.jpg" alt="Alt text" /></p>
+<img src="http://img.itc.cn/photo/o41PBy3DAqp" alt="Alt text" /></p>
 
 <h5>4. 数字证书</h5>
 
@@ -139,7 +139,7 @@
 <h4>iOS签名验证流程</h4>
 
 <p>整个过程的前提是已经购买了苹果的开发者账号（\$99或\$299）。并且安装了<code>Xcode</code>，因为安装<code>Xcode</code>的过程中会自动安装苹果的开发者根证书（<code>Apple Worldwide Developer Relations Certification Authority</code>）。这证书包含了苹果CA的<code>公钥</code>。有了这个公钥，我们和Apple就可以进行互信的信息传递。整个过程大致如下：
-<img src="./iOS%E8%AF%81%E4%B9%A6%E5%92%8C%E6%A0%A1%E9%AA%8C.png" alt="Alt text" /></p>
+<img src="http://img.itc.cn/photo/j41PB2NQfCg" alt="Alt text" /></p>
 
 <h5>一. 证书申请</h5>
 
@@ -163,7 +163,7 @@
 </ul>
 </blockquote></li>
 <li><p>下载生成的证书，双击安装就会出现在<code>钥匙串</code>中，<code>钥匙串</code>会根据证书中的公钥对应上本机器上的私钥。
-<img src="./iphone-developer-keychain.png" alt="Alt text" /></p></li>
+<img src="http://img.itc.cn/photo/j41PBVh1nJ1" alt="Alt text" /></p></li>
 </ol>
 
 
@@ -182,7 +182,7 @@
 </blockquote></li>
 <li><p>通过<code>Xcode</code>指定要使用的证书，其实是 指定了签名过程中要使用的<code>私钥</code>，这个私钥是和证书中的公钥相对应的。然后指定对应的<code>mobileprovision</code>，由于<code>mobileprovision</code>文件中包含了证书，实际上本地证书就是<code>Xcode</code>用来指定对应<code>私钥</code>用的。</p></li>
 <li>最后通过指定的私钥对需要签名的数据进行数字签名（编译过程在签名之前，这里省略了编译过程，编译后的二进制文件也是要签名的内容），最终将<code>ipa</code>包的形式输出，<code>ipa</code>的文件结构如下：
-<img src="./ipa%E7%BB%84%E6%88%90.png" alt="Alt text" />
+<img src="http://img.itc.cn/photo/j41PB96mIrt" alt="Alt text" />
 
 <blockquote><ul>
 <li><strong>资源文件：</strong>例如图片、html、等等。</li>
