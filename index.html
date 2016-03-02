@@ -195,14 +195,18 @@
 <li><strong>_CodeSignature/CodeResources：</strong>plist文件，内容是包内所有数据的数字签名。</li>
 <li><strong>可执行文件：</strong>编译后的二进制文件。</li>
 <li><strong>mobileprovision：</strong>我们之前通过Xcode指定的包含了证书的文件。</li>
-<li><strong>Frameworks：</strong>程序引用的非系统自带的Frameworks。每个Framework的结构跟app其实差不多
+<li><strong>Frameworks：</strong>程序引用的非系统自带的Frameworks。每个Framework的结构跟app其实差不多</li>
+</ul>
+</blockquote>
 
-<h5>三. 验证安装</h5></li>
+<h5>三. 验证安装</h5>
+
+<ol>
 <li>解压<code>ipa</code>包，获取<code>embedded.mobileprovision</code>，通过设备上的<code>Apple</code>公钥验证该文件的完整性和安全性。</li>
 <li><code>embedded.mobileprovision</code>文件验证通过，获取该文件内的用户证书，再通过设备上的<code>Apple</code>公钥验证该证书的完整性和安全性。</li>
 <li>证书验证通过后，获取证书内的我们开发者的公钥。然后通过开发者的公钥验证应用程序包内的数据的完整性和安全性。通过后即可安装。</li>
-</ul>
-</blockquote>
+</ol>
+
 
 <h4>参考资料</h4>
 
