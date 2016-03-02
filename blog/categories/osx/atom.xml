@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: OSX | Joywii`s Blog]]></title>
+  <link href="http://Joywii.github.io/blog/categories/osx/atom.xml" rel="self"/>
+  <link href="http://Joywii.github.io/"/>
+  <updated>2016-03-02T15:35:47+08:00</updated>
+  <id>http://Joywii.github.io/</id>
+  <author>
+    <name><![CDATA[Joywii]]></name>
+    <email><![CDATA[kingzwt@126.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[OSX Use Tips]]></title>
+    <link href="http://Joywii.github.io/blog/2014/03/21/osx-use-tips/"/>
+    <updated>2014-03-21T18:58:37+08:00</updated>
+    <id>http://Joywii.github.io/blog/2014/03/21/osx-use-tips</id>
+    <content type="html"><![CDATA[<h2>1.快速创建HTTP服务器共享文件</h2>
+
+<p>在想要分享的目录下输入以下Python命令：</p>
+
+<p><code>
+python -m SimpleHTTPServer 8888
+</code>
+然后在浏览器中访问<a href="http://xx.xx.xx.xx:8888">http://xx.xx.xx.xx:8888</a> 就可以访问我们想要共享的目录了，xx.xx.xx.xx是本机的ip地址，8888是HTTP服务监听的端口号。</p>
+
+<h2>2.显示和隐藏Mac隐藏文件</h2>
+
+<p>显示隐藏文件命令：</p>
+
+<p><code>
+defaults write com.apple.finder AppleShowAllFiles -bool true
+</code>
+隐藏隐藏文件命令：</p>
+
+<p><code>
+defaults write com.apple.finder AppleShowAllFiles -bool false
+</code></p>
+
+<h2>3.Git自动补全</h2>
+
+<p>在系统下面运行以下指令来获取脚本：</p>
+
+<p>```
+cd ~
+curl <a href="https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash">https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash</a> -o ~/.git-completion.bash</p>
+
+<p>```
+然后，在~/.bash_profile文件中添加一下代码：</p>
+
+<p>```
+if [ -f ~/.git-completion.bash ];then</p>
+
+<pre><code>. ~/.git-completion.bash
+</code></pre>
+
+<p>fi
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

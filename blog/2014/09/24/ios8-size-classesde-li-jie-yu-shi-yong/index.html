@@ -1,0 +1,277 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>iOS8 Size Classes的理解与使用 - Joywii`s Blog</title>
+	<meta name="author" content="Joywii">
+
+	
+	<meta name="description" content="iOS8 Size Classes的理解与使用 Size Classes是什么 iOS 8在应用界面的可视化设计上添加了一个新的特性-Size Classes，对于任何设备来说，界面的宽度和高度都只分为两种描述：正常和紧凑。这样开发者便可以无视设备具体的尺寸，而是对这两类和它们的组合进行适配。 &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Joywii`s Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://Joywii.github.io/blog/2014/09/24/ios8-size-classesde-li-jie-yu-shi-yong/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("kingzwt@126.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">Joywii`s Blog</a></h1>
+<p class="subtitle">iOS Dev And Stu Blog</p>
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">首页</a></li>
+    <li><a href="http://weibo.com/kingzwt">微博</a></li>
+    <li><a href="/blog/archives">所有文章</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/kingzwt" title="Weibo">Weibo</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/Joywii" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+<!--
+<h1><a href="/">Joywii`s Blog</a></h1>
+-->
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">iOS8 Size Classes的理解与使用</h1>
+	<div class="entry-content" itemprop="articleBody"><h3>Size Classes是什么</h3>
+
+<p>iOS 8在应用界面的可视化设计上添加了一个新的特性-Size Classes，对于任何设备来说，界面的宽度和高度都只分为两种描述：<code>正常</code>和<code>紧凑</code>。这样开发者便可以无视设备具体的尺寸，而是对这两类和它们的组合进行适配。这样不论在设计时还是代码上，我们都可以不再受限于具体的尺寸，而是变成遵循尺寸的视觉感官来进行适配。在Xcode中的具体体现如下图：</p>
+
+<p><img src="http://img.itc.cn/photo/jDaZQU6AEjc" alt="Alt text" /></p>
+
+<p>但是我们看到图中的宽度和高度都是<code>Any</code>,Any是什么意思呢？如果<code>weight</code>设为<code>Any</code>，<code>height</code>设置为<code>Regular</code>，那么在该状态下的界面元素在只要<code>height</code>为<code>Regular</code>，无论<code>weight</code>是<code>Regular</code>还是<code>Compact</code>的状态中都会存在。这种关系应该叫做继承关系，具体的四种界面描述与可继承的界面描述如下：</p>
+
+<ul>
+<li>w:Compact h:Compact 继承 (<strong>w:Any h:Compact</strong> , <strong>w:Compact h:Any</strong> , <strong>w:Any h:Any</strong>)</li>
+<li>w:Regular h:Compact 继承 (<strong>w:Any h:Compact</strong> , <strong>w:Regular h:Any</strong> , <strong>w:Any h:Any</strong>)</li>
+<li>w:Compact h:Regular 继承 (<strong>w:Any h:Regular</strong> , <strong>w:Compact h:Any</strong> , <strong>w:Any h:Any</strong>)</li>
+<li>w:Regular h:Regular 继承 (<strong>w:Any h:Regular</strong> , <strong>w:Regular h:Any</strong> , <strong>w:Any h:Any</strong>)</li>
+</ul>
+
+
+<p>我们知道了iOS 8下面设备界面可以描述为4种，但是这么多设备(iPhone4S,iPhone5/5s,iPhone6,iPhone6 Plus,iPad,Apple Watch)具体对应什么描述呢？经过查看官方文档和具体实践得知具体对应关系如下:</p>
+
+<ul>
+<li>iPhone4S,iPhone5/5s,iPhone6
+
+<ul>
+<li>竖屏：(<strong>w:Compact h:Regular</strong>)</li>
+<li>横屏：(<strong>w:Compact h:Compact</strong>)</li>
+</ul>
+</li>
+<li>iPhone6 Plus
+
+<ul>
+<li>竖屏：(<strong>w:Compact h:Regular</strong>)</li>
+<li>横屏：(<strong>w:Regular h:Compact</strong>)</li>
+</ul>
+</li>
+<li>iPad
+
+<ul>
+<li>竖屏：(<strong>w:Regular h:Regular</strong>)</li>
+<li>横屏：(<strong>w:Regular h:Regular</strong>)</li>
+</ul>
+</li>
+<li>Apple Watch(猜测)
+
+<ul>
+<li>竖屏：(<strong>w:Compact h:Compact</strong>)</li>
+<li>横屏：(<strong>w:Compact h:Compact</strong>)</li>
+</ul>
+</li>
+</ul>
+
+
+<h3>Size Classes手写代码</h3>
+
+<p>为了表征<code>Size Classes</code>，Apple在iOS8中引入了一个新的类，<code>UITraitCollection</code>。这个类封装了像水平和竖直方向的Size Class等信息。iOS8的UIKit中大多数UI的基础类(包括UIScreen,UIWindow,UIViewController和UIView)都实现了<code>UITraitEnvironment</code>这个接口，通过其中的<code>traitCollection</code>这个属性，我们可以拿到对应的<code>UITraitCollection</code>对象，从而得知当前的Size Class，并进一步确定界面的布局。和UIKit中的响应者链正好相反，<code>traitCollection</code>将会在<code>view hierarchy</code>中自上而下地进行传递。对于没有指定<code>traitCollection</code>的UI部件，将使用其父节点的<code>traitCollection</code>。这在布局包含<code>childViewController</code>的界面的时候会相当有用。在<code>UITraitEnvironment</code>这个接口中另一个非常有用的是<code>-traitCollectionDidChange:</code>。在<code>traitCollection</code>发生变化时，这个方法将被调用。在实际操作时，我们往往会在<code>ViewController</code>中重写<code>-traitCollectionDidChange:</code>或者<code>-willTransitionToTraitCollection:withTransitionCoordinator:</code>方法(对于<code>ViewController</code>来说的话，后者也许是更好的选择，因为提供了转场上下文方便进行动画；但是对于普通的View来说就只有前面一个方法了)，然后在其中对当前的<code>traitCollection</code>进行判断，并进行重新布局以及动画。代码看起来大概会是这个样子：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection 
+</span><span class='line'>              withTransitionCoordinator:(id &lt;UIViewControllerTransitionCoordinator&gt;)coordinator
+</span><span class='line'>{
+</span><span class='line'>    [super willTransitionToTraitCollection:newCollection 
+</span><span class='line'>                 withTransitionCoordinator:coordinator];
+</span><span class='line'>    [coordinator animateAlongsideTransition:^(id &lt;UIViewControllerTransitionCoordinatorContext&gt; context) 
+</span><span class='line'>    {
+</span><span class='line'>        if (newCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+</span><span class='line'>            //To Do: modify something for compact vertical size
+</span><span class='line'>        } else {
+</span><span class='line'>            //To Do: modify something for other vertical size
+</span><span class='line'>        }
+</span><span class='line'>        [self.view setNeedsLayout];
+</span><span class='line'>    } completion:nil];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在两个To Do处，我们要手写代码针对不同的状态做调整。</p>
+
+<h3>Size Classes与Interface Builder</h3>
+
+<p>Xcode6中<code>Interface Builder</code>对<code>Size Class</code>有了很强大的支持，xib中可以开启Size Classes如下图：</p>
+
+<p><img src="http://img.itc.cn/photo/jDaZQyG9GF0" alt="Alt text" /></p>
+
+<p>在不同的<code>Size Classes</code>描述下，界面元素可以选择安装还是不安装，具体操作如图：</p>
+
+<p><img src="http://img.itc.cn/photo/jDaZQbsciH2" alt="Alt text" /></p>
+
+<h3>Size Classes与Image Asset</h3>
+
+<p>Xcode6中<code>Image Asset</code>也支持了<code>Size Class</code>,也就是说,我们可以对不同的<code>Size Class</code>指定不同的图片了。在<code>Image Asset</code>的编辑面板中选择某张图片，Inspector里现在多了一个<code>Width</code>和<code>Height</code>的组合，添加我们需要对应的<code>Size Class</code>，然后把合适的图拖上去，这样在运行时<code>SDK</code>就将从中挑选对应的<code>Size</code>的图进行替换了。支持<code>Size Class</code>的<code>Image Asset</code>编辑效果如下：</p>
+
+<p><img src="http://img.itc.cn/photo/jDaZQ4Vv1TP" alt="Alt text" /></p>
+
+<h3>参考链接</h3>
+
+<ul>
+<li><a href="https://developer.apple.com/library/ios/releasenotes/General/WhatsNewIniOS/Articles/iOS8.html">What&rsquo;s New in iOS</a></li>
+<li><a href="http://onevcat.com/2014/07/ios-ui-unique/">WWDC 2014 Session笔记 &ndash; iOS界面开发的大一统</a></li>
+<li><a href="http://blog.sunnyxx.com/2014/09/09/ios8-size-classes/">iOS8 Size Classes初探</a></li>
+</ul>
+
+</div>
+
+</article>
+
+	<div class="share">
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+        <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                            <a href="http://www.jiathis.com/share?uid=1903187" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                                <a class="jiathis_counter_style"></a>
+                            </div>
+                            <script type="text/javascript">
+                                var jiathis_config = {data_track_clickback:'true'};
+                            </script>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1334625954005361" charset="utf-8"></script>
+                            <!-- JiaThis Button END -->
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1903187"></script>
+<!-- UY END -->
+
+    
+<!--
+    <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+-->
+</div>
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2016
+
+    Joywii
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                  ga('create', 'UA-50708532-1', 'joywii.github.io');
+                    ga('send', 'pageview');
+
+</script>
+<!--
+
+-->
+
+
+
+		</div>
+	</div>
+</body>
+</html>

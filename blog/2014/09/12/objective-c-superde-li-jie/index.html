@@ -1,0 +1,271 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Objective-C super的理解 - Joywii`s Blog</title>
+	<meta name="author" content="Joywii">
+
+	
+	<meta name="description" content="Objective-C Super的理解 1.Super的理解 先看下面的例子 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+@interface Father : NSObject
+@end
+@implementation Father &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Joywii`s Blog" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://Joywii.github.io/blog/2014/09/12/objective-c-superde-li-jie/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("kingzwt@126.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">Joywii`s Blog</a></h1>
+<p class="subtitle">iOS Dev And Stu Blog</p>
+<nav id="main-nav"><ul class="main">
+    <li><a href="/">首页</a></li>
+    <li><a href="http://weibo.com/kingzwt">微博</a></li>
+    <li><a href="/blog/archives">所有文章</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/kingzwt" title="Weibo">Weibo</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/Joywii" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+<!--
+<h1><a href="/">Joywii`s Blog</a></h1>
+-->
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Objective-C Super的理解</h1>
+	<div class="entry-content" itemprop="articleBody"><h4>1.Super的理解</h4>
+
+<p>先看下面的例子</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface Father : NSObject
+</span><span class='line'>@end
+</span><span class='line'>@implementation Father
+</span><span class='line'>@end
+</span><span class='line'>
+</span><span class='line'>@interface Son : Father
+</span><span class='line'>@end
+</span><span class='line'>@implementation Son
+</span><span class='line'>- (id)init
+</span><span class='line'>{
+</span><span class='line'>    self = [super init];
+</span><span class='line'>    if (self)
+</span><span class='line'>    {
+</span><span class='line'>        NSLog(@"%@", NSStringFromClass([self class]));
+</span><span class='line'>        NSLog(@"%@", NSStringFromClass([super class]));
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    return self;
+</span><span class='line'>}
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出的结果：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Son
+</span><span class='line'>Son</span></code></pre></td></tr></table></div></figure>
+
+
+<p>根据<code>[super class]</code>表面的意思我们很容易理解输出应该为<code>Father</code>。真是的情况是这样的，<code>super</code>只是一个<code>编译器指示符</code>,当使用<code>super</code>和<code>self</code>发送消息的时候，消息的接收者都是<code>self</code>，本质上通过<code>self</code>发送消息会转化成<code>objc_msgSend</code>方法的调用，<code>objc_msgSend</code>负责从当前类的方法列表开始查询，而通过<code>super</code>发送消息会转化成<code>objc_msgSendSuper</code>方法的调用，<code>objc_msgSendSuper</code>是从当前类的父类的方法列表开始查询方法的。
+<code>objc_msgSend</code>定义如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id objc_msgSend(id receiver, SEL op, ...)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>self</code>默认为<code>objc_msgSend</code>方法的第一个参数，所以<code>[self class]</code>的接收者为<code>self</code>，而<code>class</code>方法在<code>NSObject</code>基类中定义，返回消息接收者<code>receiver</code>的。
+<code>objc_msgSendSuper</code>定义如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>id objc_msgSendSuper(struct objc_super *super, SEL op, ...)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>第一个参数是个<code>objc_super</code>的结构体,定义如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>struct objc_super {
+</span><span class='line'>    id receiver; 
+</span><span class='line'>    Class superClass;
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以看到这个结构体包含了两个成员，一个是<code>receiver</code>，这个类似上面<code>objc_msgSend</code>的第一个参数<code>receiver</code>，第二个成员是记录这个类的父类是什么,构建<code>objc_super</code>的时候第一个参数赋值为<code>self</code>，<code>superClass</code>赋值为<code>self</code>的父类指针。
+最上面的例子中<code>[super class]</code>具体执行过程如下：
+1.构建<code>objc_super</code>的结构体，此时这个结构体的第一个成员变量receiver就是Son的实例，和self相同。而第二个成员变量superClass就是指类Father。
+2.调用<code>objc_msgSendSuper</code>方法，将<code>objc_super</code>结构体和<code>class</code>的<code>sel</code>传递过去。函数里面在做的事情类似这样：从<code>objc_super</code>结构体指向的<code>superClass</code>的方法列表开始找<code>class</code>的<code>selector</code>，找到后再以<code>objc_super-&gt;receiver</code>去调用这个<code>selector</code>，可能也会使用<code>objc_msgSend</code>这个函数，不过此时的第一个参数<code>receiver</code>就是<code>objc_super-&gt;receiver</code>，第二个参数是从<code>objc_super-&gt;superClass</code>中找到的<code>selector</code>。</p>
+</div>
+
+</article>
+
+	<div class="share">
+    
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+        <a class="jiathis_button_qzone"></a>
+            <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                    <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                            <a href="http://www.jiathis.com/share?uid=1903187" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                                <a class="jiathis_counter_style"></a>
+                            </div>
+                            <script type="text/javascript">
+                                var jiathis_config = {data_track_clickback:'true'};
+                            </script>
+                            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1334625954005361" charset="utf-8"></script>
+                            <!-- JiaThis Button END -->
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1903187"></script>
+<!-- UY END -->
+
+    
+<!--
+    <div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+-->
+</div>
+
+
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2016
+
+    Joywii
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                  ga('create', 'UA-50708532-1', 'joywii.github.io');
+                    ga('send', 'pageview');
+
+</script>
+<!--
+
+-->
+
+
+
+		</div>
+	</div>
+</body>
+</html>
