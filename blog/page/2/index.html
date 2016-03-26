@@ -7,10 +7,8 @@
 	<meta name="author" content="Joywii">
 
 	
-	<meta name="description" content="Mar 12th, 2014 iOS iOS Dev Tips 1.多次autorelease问题 例子： 1
-2
-NSObject *object = [[NSObject alloc] init];
-[[object autorelease] autorelease]; 结果： &hellip;">
+	<meta name="description" content="Mar 21st, 2014 OSX OSX Use Tips 1.快速创建HTTP服务器共享文件 在想要分享的目录下输入以下Python命令： 1
+python -m SimpleHTTPServer 8888 然后在浏览器中访问http://xx.xx.xx.xx:8888 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +81,84 @@ NSObject *object = [[NSObject alloc] init];
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-21T18:58:37+08:00" data-updated="true" itemprop="datePublished">Mar 21<span>st</span>, 2014</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/osx/'>OSX</a>
+
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/03/21/osx-use-tips/" itemprop="url">OSX Use Tips</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>1.快速创建HTTP服务器共享文件</h2>
+
+<p>在想要分享的目录下输入以下Python命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python -m SimpleHTTPServer 8888</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后在浏览器中访问<a href="http://xx.xx.xx.xx:8888">http://xx.xx.xx.xx:8888</a> 就可以访问我们想要共享的目录了，xx.xx.xx.xx是本机的ip地址，8888是HTTP服务监听的端口号。</p>
+
+<h2>2.显示和隐藏Mac隐藏文件</h2>
+
+<p>显示隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool true</span></code></pre></td></tr></table></div></figure>
+
+
+<p>隐藏隐藏文件命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>defaults write com.apple.finder AppleShowAllFiles -bool false</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>3.Git自动补全</h2>
+
+<p>在系统下面运行以下指令来获取脚本：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~
+</span><span class='line'>curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后，在~/.bash_profile文件中添加一下代码：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if [ -f ~/.git-completion.bash ];then
+</span><span class='line'>    . ~/.git-completion.bash
+</span><span class='line'>fi</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
