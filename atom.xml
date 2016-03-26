@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2016-03-26T20:54:48+08:00</updated>
+  <updated>2016-03-26T20:57:09+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -63,10 +63,13 @@
 
 <blockquote><p><strong>优先级(我们可以自己设定值 eg：500)</strong></p>
 
-<p>UILayoutPriorityRequired  = 1000
-UILayoutPriorityDefaultHigh  = 750
-UILayoutPriorityDefaultLow = 250
-UILayoutPriorityFittingSizeLevel = 50</p></blockquote></li>
+<ul>
+<li>UILayoutPriorityRequired  = 1000</li>
+<li>UILayoutPriorityDefaultHigh  = 750</li>
+<li>UILayoutPriorityDefaultLow = 250</li>
+<li>UILayoutPriorityFittingSizeLevel = 50</li>
+</ul>
+</blockquote></li>
 </ul>
 
 
