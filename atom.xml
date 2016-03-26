@@ -4,7 +4,7 @@
   <title><![CDATA[Joywii`s Blog]]></title>
   <link href="http://Joywii.github.io/atom.xml" rel="self"/>
   <link href="http://Joywii.github.io/"/>
-  <updated>2016-03-26T20:49:10+08:00</updated>
+  <updated>2016-03-26T20:54:48+08:00</updated>
   <id>http://Joywii.github.io/</id>
   <author>
     <name><![CDATA[Joywii]]></name>
@@ -24,21 +24,30 @@
 <li><a href="http://stackoverflow.com/questions/20609206/setneedslayout-vs-setneedsupdateconstraints-and-layoutifneeded-vs-updateconstra">布局过程</a></li>
 <li><a href="http://objccn.io/issue-3-5/">先进的自动布局工具箱(中文)</a></li>
 <li><a href="https://www.objc.io/issues/3-views/advanced-auto-layout-toolbox/">先进的自动布局工具箱(英文)</a></li>
-<li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1">Auto Layout Guide</a>
+<li><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1">Auto Layout Guide</a></li>
+</ul>
+
 
 <h4>一、布局过程</h4>
 
-<p>在AutoLayout下，视图的布局过程：
-<img src="http://i.stack.imgur.com/i9YuN.png" alt="Alt text" /></p></li>
+<p>在AutoLayout下，视图的布局过程：</p>
+
+<p><img src="http://i.stack.imgur.com/i9YuN.png" alt="" /></p>
+
+<ul>
 <li><code>updating constraints:</code>
 这个过程是我们根据一些条件更新、新增、删除视图的约束的地方。这个过程之后所有的视图约束就都创建好了，后续会根据现有的约束计算布局。</li>
 <li><code>update layout:</code>
 这个过程真正计算布局的地方，系统根据约束计算好之后我们还可以在<code>layoutSubviews</code>内做一些自定义的布局。
 
-<blockquote><p><strong><code>重要事项</code></strong>
-&ndash; <code>setNeedsUpdateConstraints:</code>是标记视图为需要更新约束，保证调用<code>updateConstraintsIfNeeded</code>的时候系统调用<code>updateConstraints</code>,或者系统在下一个运行循环（Runloop）的时候调用<code>updateConstraints</code>。
-&ndash; <code>setNeedsLayout:</code>是标记视图为需要重新布局，保证调用<code>setNeedLayout</code>的时候系统调用<code>layoutSubviews</code>,或者系统在下一个运行循环管（Runloop）的时候调用<code>layoutSubviews</code>。
-&ndash; 任何对视图约束的操作（更新、新增、删除）之后都会自动调用<code>setNeedLayout</code>，就会在下一个运行循环（Runloop）或者我们自己调用<code>layoutIfNeed</code>的时候调用<code>layoutSubviews</code>。</p></blockquote></li>
+<blockquote><p><strong><code>重要事项</code></strong></p>
+
+<ul>
+<li><code>setNeedsUpdateConstraints:</code>是标记视图为需要更新约束，保证调用<code>updateConstraintsIfNeeded</code>的时候系统调用<code>updateConstraints</code>,或者系统在下一个运行循环（Runloop）的时候调用<code>updateConstraints</code>。</li>
+<li><code>setNeedsLayout:</code>是标记视图为需要重新布局，保证调用<code>setNeedLayout</code>的时候系统调用<code>layoutSubviews</code>,或者系统在下一个运行循环管（Runloop）的时候调用<code>layoutSubviews</code>。</li>
+<li>任何对视图约束的操作（更新、新增、删除）之后都会自动调用<code>setNeedLayout</code>，就会在下一个运行循环（Runloop）或者我们自己调用<code>layoutIfNeed</code>的时候调用<code>layoutSubviews</code>。</li>
+</ul>
+</blockquote></li>
 </ul>
 
 
@@ -52,8 +61,9 @@
 <li><code>contentCompression:</code>阻止自己被压缩的优先级，如果两个两个视图出现相互挤压的时候，优先级高的不会被压缩，优先级底的被压缩。例如：当两个<code>UILabel</code>水平相互压缩的时候，我们可以指定不想压缩的<code>UILabel</code>的阻止压缩的优先级高一点。</li>
 <li><code>contentHugging:</code>阻止自己被吸附的优先级，当一个视图的<code>Frame</code>改变的时候，可以导致另外一个依赖此视图的视图布局发生改变，设置阻止吸附优先级高一点，可以阻止这个改变。
 
-<blockquote><p><strong>优先级(我们可以自己设定值 eg：500)</strong>
-UILayoutPriorityRequired  = 1000
+<blockquote><p><strong>优先级(我们可以自己设定值 eg：500)</strong></p>
+
+<p>UILayoutPriorityRequired  = 1000
 UILayoutPriorityDefaultHigh  = 750
 UILayoutPriorityDefaultLow = 250
 UILayoutPriorityFittingSizeLevel = 50</p></blockquote></li>
@@ -263,7 +273,7 @@ UILayoutPriorityFittingSizeLevel = 50</p></blockquote></li>
 </pre></td><td class='code'><pre><code class=''><span class='line'>[[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"NSDoubleLocalizedStrings"];</span></code></pre></td></tr></table></div></figure>
 
 
-<p><img src="http://img.objccn.io/issue-3/NSDoubleLocalizedStrings.png" alt="Alt text" /></p>
+<p><img src="http://img.objccn.io/issue-3/NSDoubleLocalizedStrings.png" alt="" /></p>
 
 <h4>七、AutoLayout性能</h4>
 
