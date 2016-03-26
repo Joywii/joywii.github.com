@@ -10,14 +10,18 @@ categories:
 - [先进的自动布局工具箱(中文)](http://objccn.io/issue-3-5/)
 - [先进的自动布局工具箱(英文)](https://www.objc.io/issues/3-views/advanced-auto-layout-toolbox/)
 - [Auto Layout Guide](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/index.html#//apple_ref/doc/uid/TP40010853-CH7-SW1)
+
 ####一、布局过程
 在AutoLayout下，视图的布局过程：
-![Alt text](http://i.stack.imgur.com/i9YuN.png)
+
+![](http://i.stack.imgur.com/i9YuN.png)
+
 - `updating constraints:`
 这个过程是我们根据一些条件更新、新增、删除视图的约束的地方。这个过程之后所有的视图约束就都创建好了，后续会根据现有的约束计算布局。
 - `update layout:`
 这个过程真正计算布局的地方，系统根据约束计算好之后我们还可以在`layoutSubviews`内做一些自定义的布局。
  > **`重要事项`**
+ >
  > - `setNeedsUpdateConstraints:`是标记视图为需要更新约束，保证调用`updateConstraintsIfNeeded`的时候系统调用`updateConstraints`,或者系统在下一个运行循环（Runloop）的时候调用`updateConstraints`。
  > - `setNeedsLayout:`是标记视图为需要重新布局，保证调用`setNeedLayout`的时候系统调用`layoutSubviews`,或者系统在下一个运行循环管（Runloop）的时候调用`layoutSubviews`。
  > - 任何对视图约束的操作（更新、新增、删除）之后都会自动调用`setNeedLayout`，就会在下一个运行循环（Runloop）或者我们自己调用`layoutIfNeed`的时候调用`layoutSubviews`。
@@ -28,6 +32,7 @@ categories:
 - `contentCompression:`阻止自己被压缩的优先级，如果两个两个视图出现相互挤压的时候，优先级高的不会被压缩，优先级底的被压缩。例如：当两个`UILabel`水平相互压缩的时候，我们可以指定不想压缩的`UILabel`的阻止压缩的优先级高一点。
 - `contentHugging:`阻止自己被吸附的优先级，当一个视图的`Frame`改变的时候，可以导致另外一个依赖此视图的视图布局发生改变，设置阻止吸附优先级高一点，可以阻止这个改变。
 > **优先级(我们可以自己设定值 eg：500)**
+> 
 > UILayoutPriorityRequired  = 1000
 > UILayoutPriorityDefaultHigh  = 750
 > UILayoutPriorityDefaultLow = 250
@@ -156,7 +161,8 @@ UIView提供了三种方式来查明有歧义的布局：`hasAmbiguousLayout`，
 ```
 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"NSDoubleLocalizedStrings"];
 ```
-![Alt text](http://img.objccn.io/issue-3/NSDoubleLocalizedStrings.png)
+
+![](http://img.objccn.io/issue-3/NSDoubleLocalizedStrings.png)
 
 ####七、AutoLayout性能
 自动布局是布局过程中额外的一个步骤。它需要一组约束条件，并把这些约束条件转换成 frame。因此这自然会产生一些性能的影响。如果我们对一些复杂的视图的性能要求比较高，就避免通过约束来布局，`直接通过计算视图的frame来布局。`
